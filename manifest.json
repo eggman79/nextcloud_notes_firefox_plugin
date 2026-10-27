@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "Zapisz kartę w Nextcloud Notes",
+  "version": "1.3.0",
+  "description": "Dodaje URL bieżącej karty jako notatkę w Nextcloud Notes przez API.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "nc-notes-save@local"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "optional_permissions": [
+    "*://*/*"
+  ],
+  "browser_action": {
+    "default_title": "Zapisz w Nextcloud Notes",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+N"
+      }
+    }
+  },
+  "content_security_policy": "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src https: http://localhost:* http://127.0.0.1:*; object-src 'none'; base-uri 'none'; form-action 'none'",
+  "background": {
+    "scripts": [
+      "shared.js",
+      "background.js"
+    ],
+    "persistent": false
+  }
+}

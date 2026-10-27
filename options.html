@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Nextcloud Notes – ustawienia</title>
+<style>
+  body { font: 14px system-ui, sans-serif; max-width: 480px; margin: 24px; }
+  label { display: block; margin-top: 14px; font-weight: 600; }
+  input { width: 100%; box-sizing: border-box; padding: 6px; }
+  small { color: #666; display: block; margin-top: 3px; }
+  .row { display: flex; gap: 8px; margin-top: 18px; }
+  button { padding: 6px 16px; }
+  #status { margin-top: 12px; min-height: 1.3em; }
+  .ok { color: #0a7d2c; } .err { color: #c0201b; }
+</style>
+</head>
+<body>
+  <h2>Nextcloud Notes – ustawienia</h2>
+
+  <label for="serverUrl">Adres serwera Nextcloud</label>
+  <input id="serverUrl" placeholder="https://cloud.example.com" autocomplete="off">
+  <small>Tylko HTTPS (wyjątek: localhost). Jeśli Nextcloud działa w podkatalogu, dodaj go, np. https://example.com/nextcloud</small>
+
+  <label for="username">Użytkownik</label>
+  <input id="username" autocomplete="off">
+
+  <label for="appPassword">Hasło aplikacji</label>
+  <input id="appPassword" type="password" autocomplete="off">
+  <small>Wygeneruj w Nextcloud: Ustawienia → Zabezpieczenia → Urządzenia i sesje. Nie używaj głównego hasła.</small>
+
+  <label for="defaultCategory">Domyślna kategoria (opcjonalnie)</label>
+  <input id="defaultCategory" placeholder="np. Zakładki" autocomplete="off">
+
+  <label style="font-weight:normal;display:flex;gap:6px;align-items:flex-start">
+    <input type="checkbox" id="archiveDefault" style="width:auto;margin-top:3px">
+    <span>Domyślnie archiwizuj strony w Wayback Machine (web.archive.org)
+    <small>Adres strony jest wysyłany do publicznej usługi, a kopia jest publicznie dostępna. Strony lokalne/prywatne są pomijane. Można wyłączyć osobno przy każdej notatce.</small></span>
+  </label>
+
+  <label style="font-weight:normal;display:flex;gap:6px;align-items:flex-start">
+    <input type="checkbox" id="contentDefault" style="width:auto;margin-top:3px">
+    <span>Domyślnie dołączaj treść strony do notatki
+    <small>Treść jest pobierana z otwartej karty i trafia tylko do Twojego Nextcloud. Długie strony są obcinane do 100 000 znaków. Można zmienić przy każdej notatce.</small></span>
+  </label>
+
+  <div class="row">
+    <button id="test">Testuj połączenie</button>
+    <button id="save">Zapisz</button>
+  </div>
+  <div id="status"></div>
+  <script src="shared.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
